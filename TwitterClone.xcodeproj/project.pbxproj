@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		81EE89921E454D890049C49C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE89911E454D890049C49C /* AppDelegate.swift */; };
-		81EE89941E454D890049C49C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE89931E454D890049C49C /* ViewController.swift */; };
-		81EE89971E454D890049C49C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81EE89951E454D890049C49C /* Main.storyboard */; };
 		81EE89991E454D890049C49C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81EE89981E454D890049C49C /* Assets.xcassets */; };
 		81EE899C1E454D890049C49C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81EE899A1E454D890049C49C /* LaunchScreen.storyboard */; };
 		81EE89A71E454D890049C49C /* TwitterCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE89A61E454D890049C49C /* TwitterCloneTests.swift */; };
 		81EE89B21E454D890049C49C /* TwitterCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE89B11E454D890049C49C /* TwitterCloneUITests.swift */; };
+		81EE89C01E4550740049C49C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE89BF1E4550740049C49C /* HomeController.swift */; };
+		81EE89C21E4550EE0049C49C /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 81EE89C11E4550EE0049C49C /* ios */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +36,6 @@
 /* Begin PBXFileReference section */
 		81EE898E1E454D890049C49C /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81EE89911E454D890049C49C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81EE89931E454D890049C49C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		81EE89961E454D890049C49C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81EE89981E454D890049C49C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81EE899B1E454D890049C49C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81EE899D1E454D890049C49C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +45,8 @@
 		81EE89AD1E454D890049C49C /* TwitterCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitterCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81EE89B11E454D890049C49C /* TwitterCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterCloneUITests.swift; sourceTree = "<group>"; };
 		81EE89B31E454D890049C49C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81EE89BF1E4550740049C49C /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeController.swift; path = ../HomeController.swift; sourceTree = "<group>"; };
+		81EE89C11E4550EE0049C49C /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ios; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				81EE89911E454D890049C49C /* AppDelegate.swift */,
-				81EE89931E454D890049C49C /* ViewController.swift */,
-				81EE89951E454D890049C49C /* Main.storyboard */,
+				81EE89BF1E4550740049C49C /* HomeController.swift */,
 				81EE89981E454D890049C49C /* Assets.xcassets */,
+				81EE89C11E4550EE0049C49C /* ios */,
 				81EE899A1E454D890049C49C /* LaunchScreen.storyboard */,
 				81EE899D1E454D890049C49C /* Info.plist */,
 			);
@@ -237,7 +237,7 @@
 			files = (
 				81EE899C1E454D890049C49C /* LaunchScreen.storyboard in Resources */,
 				81EE89991E454D890049C49C /* Assets.xcassets in Resources */,
-				81EE89971E454D890049C49C /* Main.storyboard in Resources */,
+				81EE89C21E4550EE0049C49C /* ios in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81EE89941E454D890049C49C /* ViewController.swift in Sources */,
+				81EE89C01E4550740049C49C /* HomeController.swift in Sources */,
 				81EE89921E454D890049C49C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,14 +299,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		81EE89951E454D890049C49C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				81EE89961E454D890049C49C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		81EE899A1E454D890049C49C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -359,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -404,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
