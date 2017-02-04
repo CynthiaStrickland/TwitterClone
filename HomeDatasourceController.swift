@@ -8,41 +8,25 @@
 
 import LBTAComponents
 
-class UserHeader: DatasourceCell {
-    override func setupViews() {
-        super.setupViews()
-        backgroundColor = .blue
-    
-    }
-}
-
-class UserFooter: DatasourceCell {
-    override func setupViews() {
-        super.setupViews()
-        backgroundColor = .green
-    }
-}
-class UserCell: DatasourceCell {
-    
-    override var datasourceItem: Any? {
-        didSet {
-            nameLabel.text = datasourceItem as? String
-        }
-    }
-    
-    // CLOSURE
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "HEY"
-        return label
-    }()
-    
-    override func setupViews() {
-        super.setupViews()
-        backgroundColor = .yellow
+class HomeDatasourceController: DatasourceController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        addSubview(nameLabel)
-        nameLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right:  rightAnchor, topConstant:  0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        let homeDatasource = HomeDatasource()
+        self.datasource = homeDatasource
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 150)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 100)
+    }
+    
 }
 
