@@ -508,6 +508,7 @@
 				81EE89B81E454D890049C49C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81EE89B91E454D890049C49C /* Build configuration list for PBXNativeTarget "TwitterCloneTests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +517,7 @@
 				81EE89BB1E454D890049C49C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81EE89BC1E454D890049C49C /* Build configuration list for PBXNativeTarget "TwitterCloneUITests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +526,7 @@
 				81EE89BE1E454D890049C49C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
