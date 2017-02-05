@@ -10,7 +10,14 @@ import LBTAComponents
 
 class HomeDatasource: Datasource {
     
-    let words = ["Sophie", "Bella", "Dexter"]
+    let users: [User] = {
+        let cynthiaUser = User(name: "Cynthia Strickland", username: "@Trinity001", bioText: "My Life", profileImage: #imageLiteral(resourceName: "Lion.PNG"))
+        
+        let rayUser = User(name: "Ray Wenderlich", username: "@RayWenderlich", bioText: "Ray is a developer", profileImage: #imageLiteral(resourceName: "jet.png"))
+        
+        return [cynthiaUser, rayUser]
+    }()
+    
     
     //THIS RENDERS OUT THE CELLS
     
@@ -27,10 +34,10 @@ class HomeDatasource: Datasource {
     }
     
     override func item(_ indexPath: IndexPath) -> Any? {
-        return words[indexPath.item]
+        return users[indexPath.item]
     }
     
     override func numberOfItems(_ section: Int) -> Int {
-        return words.count
+        return users.count
     }
 }
