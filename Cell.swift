@@ -8,17 +8,40 @@
 
 import LBTAComponents
 
+let twitterBlue = UIColor(r: 61, g: 167, b: 244)
+
 class UserFooter: DatasourceCell {
+    
+    let textLabel: UILabel = {
+        let label = UILabel()
+        label.text = "SHOW ME MORE"
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.textColor = twitterBlue
+        return label
+    }()
+    
     override func setupViews() {
         super.setupViews()
-        backgroundColor = .green
+        
+        addSubview(textLabel)
+        textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
 }
 
 class UserHeader: DatasourceCell {
+    
+    let textLabel: UILabel = {
+        let label = UILabel()
+        label.text = "WHO TO FOLLOW"
+        label.font = UIFont.systemFont(ofSize: 16)
+        return label
+    }()
+    
     override func setupViews() {
         super.setupViews()
-        backgroundColor = .blue
+        
+        addSubview(textLabel)
+        textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
 }
 
@@ -32,7 +55,7 @@ class UserCell: DatasourceCell {
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "IMG_0264.PNG")
+        imageView.image = #imageLiteral(resourceName: "Lion.PNG")
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
         return imageView
@@ -57,11 +80,11 @@ class UserCell: DatasourceCell {
         let textView = UITextView()
         textView.text = "Checking out this new design for building Collection Views.   Super Cool!"
         textView.font = UIFont.systemFont(ofSize: 14)
+        textView.backgroundColor = .clear
         return textView
     }()
     
     let followButton: UIButton = {
-        let twitterBlue = UIColor(r: 61, g: 167, b: 244)
         
         let button = UIButton()
         button.layer.cornerRadius = 5
@@ -70,6 +93,10 @@ class UserCell: DatasourceCell {
         button.setTitle("Follow", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(twitterBlue, for: .normal)
+        button.setImage(#imageLiteral(resourceName: "follow.png"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: 0)
+        
         return button
     }()
     
