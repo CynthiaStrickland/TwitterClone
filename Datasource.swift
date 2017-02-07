@@ -11,7 +11,7 @@ import LBTAComponents
 class HomeDatasource: Datasource {
     
     let users: [User] = {
-        let cynthiaUser = User(name: "Cynthia Strickland", username: "@Trinity001", bioText: "My Life", profileImage: #imageLiteral(resourceName: "Lion.PNG"))
+        let cynthiaUser = User(name: "Cynthia Strickland", username: "@Trinity001", bioText: "Writing this Twitter app based on Brian's fantastic Let's Build This App YouTube video tutorials!!!", profileImage: #imageLiteral(resourceName: "Lion.PNG"))
         
         let rayUser = User(name: "Ray Wenderlich", username: "@RayWenderlich", bioText: "Ray is a developer", profileImage: #imageLiteral(resourceName: "jet.png"))
         
