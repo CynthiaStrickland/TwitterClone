@@ -22,8 +22,13 @@ class TweetCell: DatasourceCell {
             
             attributedText.append(NSAttributedString(string: usernameString, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15), NSForegroundColorAttributeName: UIColor.gray]))
             
-            attributedText.append(NSAttributedString(string: tweet.message, attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 15)]))
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 10
+            let range = NSMakeRange(0, attributedText.string.characters.count)
+            attributedText.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: range)
             
+            attributedText.append(NSAttributedString(string: tweet.message, attributes: [NSFontAttributeName:UIFont.systemFont(ofSize: 15)]))
+
             messageTextView.attributedText = attributedText
         }
     }

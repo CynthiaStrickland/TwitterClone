@@ -24,6 +24,10 @@
 		81C12BF91E4A9AC30005DBB3 /* HomeDatasourceController+NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C12BF81E4A9AC30005DBB3 /* HomeDatasourceController+NavBar.swift */; };
 		81C12BFB1E4A9FBC0005DBB3 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C12BFA1E4A9FBC0005DBB3 /* TweetCell.swift */; };
 		81C12BFD1E4AC2120005DBB3 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C12BFC1E4AC2120005DBB3 /* Tweet.swift */; };
+		81C12C031E4BD7580005DBB3 /* reply@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C12C021E4BD7580005DBB3 /* reply@2x.png */; };
+		81C12C051E4BD7670005DBB3 /* like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C12C041E4BD7670005DBB3 /* like@2x.png */; };
+		81C12C071E4BD7710005DBB3 /* retweet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C12C061E4BD7710005DBB3 /* retweet@2x.png */; };
+		81C12C091E4BD7780005DBB3 /* send_message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C12C081E4BD7780005DBB3 /* send_message@2x.png */; };
 		81EE89921E454D890049C49C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EE89911E454D890049C49C /* AppDelegate.swift */; };
 		81EE89991E454D890049C49C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81EE89981E454D890049C49C /* Assets.xcassets */; };
 		81EE899C1E454D890049C49C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81EE899A1E454D890049C49C /* LaunchScreen.storyboard */; };
@@ -70,6 +74,10 @@
 		81C12BF81E4A9AC30005DBB3 /* HomeDatasourceController+NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeDatasourceController+NavBar.swift"; sourceTree = "<group>"; };
 		81C12BFA1E4A9FBC0005DBB3 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		81C12BFC1E4AC2120005DBB3 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		81C12C021E4BD7580005DBB3 /* reply@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reply@2x.png"; sourceTree = "<group>"; };
+		81C12C041E4BD7670005DBB3 /* like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like@2x.png"; sourceTree = "<group>"; };
+		81C12C061E4BD7710005DBB3 /* retweet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet@2x.png"; sourceTree = "<group>"; };
+		81C12C081E4BD7780005DBB3 /* send_message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "send_message@2x.png"; sourceTree = "<group>"; };
 		81EE898E1E454D890049C49C /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81EE89911E454D890049C49C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = TwitterClone/AppDelegate.swift; sourceTree = "<group>"; };
 		81EE89981E454D890049C49C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = TwitterClone/Assets.xcassets; sourceTree = "<group>"; };
@@ -151,6 +159,10 @@
 				EF16DA1E76D0C1ECAC6EB8D3 /* Frameworks */,
 				81EE899D1E454D890049C49C /* Info.plist */,
 				81EE89981E454D890049C49C /* Assets.xcassets */,
+				81C12C081E4BD7780005DBB3 /* send_message@2x.png */,
+				81C12C061E4BD7710005DBB3 /* retweet@2x.png */,
+				81C12C041E4BD7670005DBB3 /* like@2x.png */,
+				81C12C021E4BD7580005DBB3 /* reply@2x.png */,
 				812E74BE1E4A922100A3413A /* search@2x.png */,
 				812E74C21E4A925E00A3413A /* compose@2x.png */,
 				812E74B51E47B6B000A3413A /* jet.png */,
@@ -350,8 +362,12 @@
 				812E74C31E4A925E00A3413A /* compose@2x.png in Resources */,
 				812E74BF1E4A922100A3413A /* search@2x.png in Resources */,
 				812E74B61E47B6B000A3413A /* jet.png in Resources */,
+				81C12C031E4BD7580005DBB3 /* reply@2x.png in Resources */,
+				81C12C051E4BD7670005DBB3 /* like@2x.png in Resources */,
 				81EE89991E454D890049C49C /* Assets.xcassets in Resources */,
 				81EE89C21E4550EE0049C49C /* ios in Resources */,
+				81C12C091E4BD7780005DBB3 /* send_message@2x.png in Resources */,
+				81C12C071E4BD7710005DBB3 /* retweet@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
