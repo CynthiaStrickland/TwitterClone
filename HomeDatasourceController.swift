@@ -13,34 +13,12 @@ class HomeDatasourceController: DatasourceController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView?.backgroundColor = UIColor(r: 232, g: 236, b:241)
+        
         setupNavigationBarItems()
         
         let homeDatasource = HomeDatasource()
         self.datasource = homeDatasource
-    }
-    
-    private func setupNavigationBarItems() {
-        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "title_icon.png"))
-        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-        titleImageView.contentMode = .scaleAspectFit
-        navigationItem.titleView = titleImageView
-        
-        let followButton = UIButton(type: .system)
-        followButton.setImage(#imageLiteral(resourceName: "follow.png").withRenderingMode(.alwaysOriginal), for: .normal)
-        followButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: followButton)
-        
-        let searchButton = UIButton(type: .system)
-        searchButton.setImage(#imageLiteral(resourceName: "search.png").withRenderingMode(.alwaysOriginal), for: .normal)
-        searchButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-        
-        let composeButton = UIButton(type: .system)
-        composeButton.setImage(#imageLiteral(resourceName: "compose.png").withRenderingMode(.alwaysOriginal), for: .normal)
-        composeButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
-        
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: composeButton), UIBarButtonItem(customView: searchButton)]
-        
-        
     }
     
     // COLLAPSES GAP
@@ -52,14 +30,11 @@ class HomeDatasourceController: DatasourceController {
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if let user = self.datasource?.item(indexPath) as? User {
-            user.bioText
-            
             //provide estimation for height of cell
             let approximateWidthOfBioTextView = view.frame.width - 12 - 50 - 12 - 2
             let size = CGSize(width: approximateWidthOfBioTextView, height: 1000)
             let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 15)]
-            let estiamtedFrame = NSString(string:
-            user.bioText).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+            let estiamtedFrame = NSString(string:user.bioText).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
             
             return CGSize(width: view.frame.width, height: estiamtedFrame.height + 66)
         }
@@ -68,11 +43,18 @@ class HomeDatasourceController: DatasourceController {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 1 {
+            return .zero
+        }
         return CGSize(width: view.frame.width, height: 50)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 50)
+        if section == 1 {
+            return .zero   //Eliminates header/footer except Section 1
+            
+        }
+        return CGSize(width: view.frame.width, height: 64)
     }
     
 }

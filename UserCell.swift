@@ -13,15 +13,11 @@ class UserCell: DatasourceCell {
     override var datasourceItem: Any? {
         didSet {
             print(datasourceItem!)
-            
-            //Downcast it
-            
             guard let user = datasourceItem as? User else { return }
             nameLabel.text = user.name
             usernameLabel.text = user.username
             bioTextView.text = user.bioText
             profileImageView.image = user.profileImage
-            
         }
     }
     
@@ -57,7 +53,6 @@ class UserCell: DatasourceCell {
     }()
     
     let followButton: UIButton = {
-        
         let button = UIButton()
         button.layer.cornerRadius = 5
         button.layer.borderColor = twitterBlue.cgColor
@@ -76,6 +71,7 @@ class UserCell: DatasourceCell {
         super.setupViews()
         
         separatorLineView.isHidden = false
+        backgroundColor = .white
         
         addSubview(profileImageView)
         addSubview(nameLabel)
