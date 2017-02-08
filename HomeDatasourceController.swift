@@ -14,6 +14,7 @@ class HomeDatasourceController: DatasourceController {
         super.viewDidLoad()
         
         setupNavigationBarItems()
+        
         let homeDatasource = HomeDatasource()
         self.datasource = homeDatasource
     }
@@ -28,6 +29,17 @@ class HomeDatasourceController: DatasourceController {
         followButton.setImage(#imageLiteral(resourceName: "follow.png").withRenderingMode(.alwaysOriginal), for: .normal)
         followButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: followButton)
+        
+        let searchButton = UIButton(type: .system)
+        searchButton.setImage(#imageLiteral(resourceName: "search.png").withRenderingMode(.alwaysOriginal), for: .normal)
+        searchButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        
+        let composeButton = UIButton(type: .system)
+        composeButton.setImage(#imageLiteral(resourceName: "compose.png").withRenderingMode(.alwaysOriginal), for: .normal)
+        composeButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: composeButton), UIBarButtonItem(customView: searchButton)]
+        
         
     }
     
