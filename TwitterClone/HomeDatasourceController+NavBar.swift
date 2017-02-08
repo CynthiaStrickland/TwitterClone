@@ -26,6 +26,16 @@ extension HomeDatasourceController {
         titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
         titleImageView.contentMode = .scaleAspectFit
         navigationItem.titleView = titleImageView
+        
+        navigationController?.navigationBar.shadowImage = UIImage()   //Makes line under NavBar really thin
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default) //Deletes line completely
+        
+        let navBarSeparatorView = UIView()
+        navBarSeparatorView.backgroundColor = UIColor(r: 230, g: 230, b:230)
+        view.addSubview(navBarSeparatorView)
+        
+        navBarSeparatorView.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0.5)
+        
     }
     
      func setupLeftNavItems() {

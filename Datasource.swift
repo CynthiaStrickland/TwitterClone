@@ -18,6 +18,16 @@ class HomeDatasource: Datasource {
         return [cynthiaUser, rayUser]
     }()
     
+    let tweets: [Tweet] = {
+        
+        let cynthiaUser = User(name: "Cynthia Strickland", username: "@Trinity001", bioText: "Writing this Twitter app based on Brian's fantastic Let's Build This App YouTube video tutorials!!!", profileImage: #imageLiteral(resourceName: "Lion.PNG"))
+        
+        let tweet = Tweet(user: cynthiaUser, message: "Welcome I am writing this Twitter app based on Brian's fantastic Let's Build This App YouTube video tutorials!!!")
+        
+        let tweet2 = Tweet(user: cynthiaUser, message: "Welcome I am writing this Twitter app based on Brian's fantastic Let's Build This App YouTube video tutorials!!!")
+        
+        return [tweet, tweet2]
+    }()
     
     //THIS RENDERS OUT THE CELLS
     
@@ -34,6 +44,9 @@ class HomeDatasource: Datasource {
     }
     
     override func item(_ indexPath: IndexPath) -> Any? {
+        if indexPath.section == 1 {
+            return tweets[indexPath.item]
+        }
         return users[indexPath.item]
     }
     
@@ -42,6 +55,9 @@ class HomeDatasource: Datasource {
     }
     
     override func numberOfItems(_ section: Int) -> Int {
+        if section == 1 {
+            return tweets.count
+        }
         return users.count
     }
 }
