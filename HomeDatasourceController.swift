@@ -10,6 +10,12 @@ import LBTAComponents
 
 class HomeDatasourceController: DatasourceController {
     
+    // *******   This causes the rerunning of the Layout when the device is rotated!!
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionViewLayout.invalidateLayout()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

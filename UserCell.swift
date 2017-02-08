@@ -23,7 +23,7 @@ class UserCell: DatasourceCell {
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "Lion.PNG")
+        imageView.image = #imageLiteral(resourceName: "Profilepic")
         imageView.layer.cornerRadius = 5
         imageView.layer.masksToBounds = true
         return imageView
