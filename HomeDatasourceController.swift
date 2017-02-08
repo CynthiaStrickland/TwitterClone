@@ -13,8 +13,22 @@ class HomeDatasourceController: DatasourceController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationBarItems()
         let homeDatasource = HomeDatasource()
         self.datasource = homeDatasource
+    }
+    
+    private func setupNavigationBarItems() {
+        let titleImageView = UIImageView(image: #imageLiteral(resourceName: "title_icon.png"))
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        titleImageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = titleImageView
+        
+        let followButton = UIButton(type: .system)
+        followButton.setImage(#imageLiteral(resourceName: "follow.png").withRenderingMode(.alwaysOriginal), for: .normal)
+        followButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: followButton)
+        
     }
     
     // COLLAPSES GAP
@@ -29,8 +43,7 @@ class HomeDatasourceController: DatasourceController {
             user.bioText
             
             //provide estimation for height of cell
-            
-            let approximateWidthOfBioTextView = view.frame.width - 12 - 50 - 12 - 2 
+            let approximateWidthOfBioTextView = view.frame.width - 12 - 50 - 12 - 2
             let size = CGSize(width: approximateWidthOfBioTextView, height: 1000)
             let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 15)]
             let estiamtedFrame = NSString(string:
