@@ -7,6 +7,9 @@
 //
 
 import LBTAComponents
+import SwiftyJSON
+import TRON
+
 
 class HomeDatasourceController: DatasourceController {
     
@@ -22,9 +25,58 @@ class HomeDatasourceController: DatasourceController {
         collectionView?.backgroundColor = UIColor(r: 232, g: 236, b:241)
         
         setupNavigationBarItems()
+        fetchHomeFeed()
+
+//      THIS PROVIDED ALL OF THE DATA FOR THE MOCKUP.... NOW GOING TO LOAD REAL DATA DIRECTLY FROM TWITTER
+//        let homeDatasource = HomeDatasource()
+//        self.datasource = homeDatasource
         
-        let homeDatasource = HomeDatasource()
-        self.datasource = homeDatasource
+    }
+    
+    //MARK:   USING TRON
+    
+    let tron = TRON(baseURL: "https://api.letsbuildthatapp.com")
+    
+    class Home: JSONDecodable {
+        
+        let users: [User]
+
+        required init(json: JSON) throws {
+            
+            var users = [User]()
+            
+            let array = json["users"].array
+            for userJson in array! {
+                
+                let name = userJson["name"].stringValue
+                let username = userJson["username"].stringValue
+                let bio = userJson["bioText"].stringValue
+                
+                let user = User(name: name, username: username, bioText: bio, profileImage: UIImage())
+                
+                users.append(user)
+            }
+            self.users = users
+        }
+    }
+    
+    class JSONError: JSONDecodable {
+        required init(json: JSON) throws {
+            print("JSON ERROR")
+        }
+    }
+    
+    fileprivate func fetchHomeFeed() {
+        
+        let request: APIRequest<HomeDatasource, JSONError> = tron.request("/twitter/home")
+        
+        request.perform(withSuccess: { (homeDatasource) in
+            print(homeDatasource.users.count)
+            self.datasource = homeDatasource
+
+        }) { (err) in
+            print("failed", err)
+        }
     }
     
     // COLLAPSES GAP
