@@ -9,7 +9,6 @@
 import UIKit
 
 struct Tweet {
-    
     let user: User
     let message: String
     

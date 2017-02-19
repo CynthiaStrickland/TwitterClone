@@ -10,7 +10,6 @@ import LBTAComponents
 import SwiftyJSON
 import TRON
 
-
 class HomeDatasourceController: DatasourceController {
     
     // *******   This causes the rerunning of the Layout when the device is rotated!!
@@ -25,66 +24,22 @@ class HomeDatasourceController: DatasourceController {
         collectionView?.backgroundColor = UIColor(r: 232, g: 236, b:241)
         
         setupNavigationBarItems()
-        fetchHomeFeed()
-
+        TwitterService.sharedInstance.fetchHomeFeed { (homeDatasource) in
+            self.datasource = homeDatasource
+        }
+        
 //      THIS PROVIDED ALL OF THE DATA FOR THE MOCKUP.... NOW GOING TO LOAD REAL DATA DIRECTLY FROM TWITTER
 //        let homeDatasource = HomeDatasource()
 //        self.datasource = homeDatasource
         
     }
-    
-    //MARK:   USING TRON
-    
-    let tron = TRON(baseURL: "https://api.letsbuildthatapp.com")
-    
-    class Home: JSONDecodable {
-        
-        let users: [User]
 
-        required init(json: JSON) throws {
-            
-            var users = [User]()
-            
-            let array = json["users"].array
-            for userJson in array! {
-                
-                let name = userJson["name"].stringValue
-                let username = userJson["username"].stringValue
-                let bio = userJson["bioText"].stringValue
-                
-                let user = User(name: name, username: username, bioText: bio, profileImage: UIImage())
-                
-                users.append(user)
-            }
-            self.users = users
-        }
-    }
-    
-    class JSONError: JSONDecodable {
-        required init(json: JSON) throws {
-            print("JSON ERROR")
-        }
-    }
-    
-    fileprivate func fetchHomeFeed() {
-        
-        let request: APIRequest<HomeDatasource, JSONError> = tron.request("/twitter/home")
-        
-        request.perform(withSuccess: { (homeDatasource) in
-            print(homeDatasource.users.count)
-            self.datasource = homeDatasource
-
-        }) { (err) in
-            print("failed", err)
-        }
-    }
-    
-    // COLLAPSES GAP
+            // MARK: COLLECTION VIEW -  COLLAPSES GAP
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
         
     }
-    //  HEIGHT OF THE CELL
+            //  HEIGHT OF THE CELL
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if let user = self.datasource?.item(indexPath) as? User {

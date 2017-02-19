@@ -15,18 +15,15 @@ class HomeDatasource: Datasource, JSONDecodable {
     let users: [User]
     
     required init(json: JSON) throws {
-        
         var users = [User]()
         
         let array = json["users"].array
         for userJson in array! {
-            
             let name = userJson["name"].stringValue
             let username = userJson["username"].stringValue
             let bio = userJson["bioText"].stringValue
             
             let user = User(name: name, username: username, bioText: bio, profileImage: UIImage())
-            
             users.append(user)
         }
         self.users = users
