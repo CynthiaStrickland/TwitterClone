@@ -15,32 +15,14 @@ class HomeDatasource: Datasource, JSONDecodable {
     let users: [User]
     
     required init(json: JSON) throws {
-        var users = [User]()
+        let usersJsonArray = json["users"].array
+        self.users = usersJsonArray!.map{User(json: $0)}
         
-        let array = json["users"].array
-        for userJson in array! {
-            let name = userJson["name"].stringValue
-            let username = userJson["username"].stringValue
-            let bio = userJson["bioText"].stringValue
-            
-            let user = User(name: name, username: username, bioText: bio, profileImage: UIImage())
-            users.append(user)
-        }
-        self.users = users
+        let tweetsJsonArray = json["tweets"].array
+        self.tweets = tweetsJsonArray!.map{Tweet(json: $0)}
     }
     
-    let tweets: [Tweet] = {
-        
-        let cynthiaUser = User(name: "Cynthia Strickland", username: "@Trinity001", bioText: "Writing this Twitter app based on Brian's fantastic Let's Build This App YouTube video tutorials!!!", profileImage: #imageLiteral(resourceName: "Profilepic"))
-        
-        let tweet = Tweet(user: cynthiaUser, message: "Welcome I am writing this Twitter app based on Brian's fantastic Let's Build This App YouTube video tutorials!!!")
-        
-        let tweet2 = Tweet(user: cynthiaUser, message: "Welcome I am writing this Twitter app based on Brian's fantastic Let's Build This App YouTube video tutorials!!!")
-        
-        return [tweet, tweet2]
-    }()
-    
-    //THIS RENDERS OUT THE CELLS
+    let tweets: [Tweet]
     
     override func headerClasses() -> [DatasourceCell.Type]? {
         return [UserHeader.self]
